@@ -11,12 +11,14 @@
 	};
 </script>
 
-<div class="items-center m-auto">
+<div>
 	<input
 		type="text"
 		placeholder="Enter city name"
 		bind:value={cityName}
-		class="px-4 py-2 border border-gray-300 rounded-md mr-2"
+		class="px-4 py-2 rounded-md mr-2 bg-slate-600"
 	/>
-	<button on:click={search} class="px-4 py-2 bg-blue-500 text-white rounded-md">Search</button>
+	<button on:click={search} class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-800"
+		>Search</button
+	>
 </div>

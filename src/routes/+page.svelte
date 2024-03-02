@@ -29,11 +29,23 @@
 	}
 </script>
 
-<div class="w-full h-full items-center justify-center">
-	<svelte:component this={SearchBar} on:search={handleSearch} />
-
+<div class="w-full h-full text-white">
+	<div class="flex w-full justify-center">
+		<p class="p-5">Enter the name of the city to know about it's weather.</p>
+	</div>
+	<div class="flex w-full justify-center">
+		<svelte:component this={SearchBar} on:search={handleSearch} />
+	</div>
 	{#if locationWeather}
-		<WeatherCard weatherData={locationWeather} />
+		<div class="flex w-full justify-center">
+			<h1 class="text-3xl p-5">Current Weather</h1>
+		</div>
+		<div class="flex w-full justify-center">
+			<WeatherCard weatherData={locationWeather} />
+		</div>
+		<div class="flex w-full justify-center">
+			<h1 class="text-3xl p-5">Forecast</h1>
+		</div>
 	{/if}
 
 	{#if forecast.length > 0}
