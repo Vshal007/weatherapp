@@ -31,7 +31,9 @@
 
 <div class="w-full h-full text-white">
 	<div class="flex w-full justify-center">
-		<p class="p-5">Enter the name of the city to know about it's weather.</p>
+		<p class="p-5 text-rose-400 text-lg">
+			Enter the name of the city to know about its weather. For example: Delhi.
+		</p>
 	</div>
 	<div class="flex w-full justify-center">
 		<svelte:component this={SearchBar} on:search={handleSearch} />
