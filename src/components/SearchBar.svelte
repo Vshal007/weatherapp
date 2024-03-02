@@ -11,7 +11,7 @@
 	};
 </script>
 
-<div class="flex items-center">
+<div class="items-center m-auto">
 	<input
 		type="text"
 		placeholder="Enter city name"

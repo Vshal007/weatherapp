@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let forecastData: any;
+	export let forecastData:any[];
 </script>
 
 <div class="grid grid-cols-5 gap-4">
@@ -10,6 +10,7 @@
 			<p>Description: {day.description}</p>
 			<p>Wind Speed: {day.windSpeed} mph</p>
 			<p>Humidity: {day.humidity}%</p>
+			<p>UV Index: {day.uvIndex}</p>
 		</div>
 	{/each}
 </div>

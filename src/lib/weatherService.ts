@@ -1,30 +1,34 @@
-const API_KEY = '6U4WGAH7RT9B5FW3YM8VFD52K';
-const BASE_URL = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline';
-
 const weatherService = {
   getCurrentWeather: async (city: string) => {
-    const response = await fetch(`${BASE_URL}/${city}?unitGroup=us&key=${API_KEY}&contentType=json`);
+    const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=us&key=6U4WGAH7RT9B5FW3YM8VFD52K&contentType=json`);
     const data = await response.json();
+
+    const currentConditions = data.currentConditions;
+
     return {
       locationName: data.resolvedAddress,
-      temp: data.currentConditions.temp,
-      description: data.currentConditions.description,
-      windSpeed: data.currentConditions.windSpeed,
-      humidity: data.currentConditions.humidity,
-      uvIndex: data.currentConditions.uvindex,
+      temp: currentConditions.temp,
+      description: currentConditions.conditions,
+      windSpeed: currentConditions.windspeed,
+      humidity: currentConditions.humidity,
+      uvIndex: currentConditions.uvindex,
     };
   },
 
   getForecast: async (city: string) => {
-    const response = await fetch(`${BASE_URL}/${city}/daily?unitGroup=us&key=${API_KEY}&contentType=json`);
+    const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=us&key=6U4WGAH7RT9B5FW3YM8VFD52K&contentType=json`);
     const data = await response.json();
-    return data.days.map((day: any) => ({
+
+    const forecast = data.days.map((day: any) => ({
       date: day.datetime,
-      temp: day.tempmax,
-      description: day.conditions,
+      temp: day.temp,
+      description: day.description,
       windSpeed: day.windspeed,
       humidity: day.humidity,
+      uvIndex: day.uvindex,
     }));
+
+    return forecast;
   },
 };
 
