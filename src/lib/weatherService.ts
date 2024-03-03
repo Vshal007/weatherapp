@@ -23,7 +23,7 @@ const weatherService = {
     const forecast = data.days.map((day: any) => ({
       date: day.datetime,
       temp: day.temp,
-      description: day.description,
+      description: day.conditions,
       windSpeed: day.windspeed,
       humidity: day.humidity,
       uvIndex: day.uvindex,
