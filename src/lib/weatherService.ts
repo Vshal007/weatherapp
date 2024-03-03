@@ -12,6 +12,7 @@ const weatherService = {
       windSpeed: currentConditions.windspeed,
       humidity: currentConditions.humidity,
       uvIndex: currentConditions.uvindex,
+      icon: currentConditions.icon,
     };
   },
 
@@ -26,6 +27,7 @@ const weatherService = {
       windSpeed: day.windspeed,
       humidity: day.humidity,
       uvIndex: day.uvindex,
+      icon: day.icon,
     }));
 
     return forecast;
